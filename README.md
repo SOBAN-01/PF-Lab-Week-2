@@ -1,2 +1,2 @@
-# PF-Lab-Assignments
-Week 2 lab tasks: Grade calculation code (May 2, 2026).
+# 2026S-CYS-103
+PF-LAB-All-WEEK-CODES
