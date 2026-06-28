@@ -1,0 +1,196 @@
+{
+    "sadan": [
+        {
+            "scan_id": "d54db50812ea40cd81475d366b906ce9",
+            "username": "sadan",
+            "url": "https://paypal-login.fake-example-test.com",
+            "risk_score": 20,
+            "danger_level": "SAFE",
+            "reasons": [
+                "Suspicious security-related words found in URL",
+                "SSL certificate problem or unreachable host"
+            ],
+            "timestamp": "2026-06-25 15:40:23"
+        },
+        {
+            "scan_id": "c1133922fbfa4d73b8d80bcdea30dd13",
+            "username": "sadan",
+            "url": "https://paypal-login.fake-example-test.com",
+            "risk_score": 20,
+            "danger_level": "SAFE",
+            "reasons": [
+                "Suspicious security-related words found in URL",
+                "SSL certificate problem or unreachable host"
+            ],
+            "timestamp": "2026-06-25 15:40:35"
+        },
+        {
+            "scan_id": "97f2d4b6f22d4a30a5bb983259150bd9",
+            "username": "sadan",
+            "url": "https://secure-banking.verify-account.invalid",
+            "risk_score": 40,
+            "danger_level": "SUSPICIOUS",
+            "reasons": [
+                "Suspicious security-related words found in URL",
+                "SSL certificate problem or unreachable host"
+            ],
+            "timestamp": "2026-06-25 15:40:50"
+        },
+        {
+            "scan_id": "113dbdf31a914a20873f1393de95447f",
+            "username": "sadan",
+            "url": "https://google-account-recovery.testing-only.example",
+            "risk_score": 10,
+            "danger_level": "SAFE",
+            "reasons": [
+                "SSL certificate problem or unreachable host"
+            ],
+            "timestamp": "2026-06-25 15:41:15"
+        },
+        {
+            "scan_id": "06930c8800514286a8e6af718f6e18a8",
+            "username": "sadan",
+            "url": "https://paypal.com.security-check.invalid",
+            "risk_score": 10,
+            "danger_level": "SAFE",
+            "reasons": [
+                "SSL certificate problem or unreachable host"
+            ],
+            "timestamp": "2026-06-25 15:41:26"
+        },
+        {
+            "scan_id": "b3377c8a31824cf5bddb0a744fae14bd",
+            "username": "sadan",
+            "url": "https://appleid.login-alert.test",
+            "risk_score": 20,
+            "danger_level": "SAFE",
+            "reasons": [
+                "Suspicious security-related words found in URL",
+                "SSL certificate problem or unreachable host"
+            ],
+            "timestamp": "2026-06-25 15:41:38"
+        },
+        {
+            "scan_id": "802df40f5f454787a3cd286ecb37c55b",
+            "username": "sadan",
+            "url": "https://app.com-v1-cloud.net/",
+            "risk_score": 10,
+            "danger_level": "SAFE",
+            "reasons": [
+                "SSL certificate problem or unreachable host"
+            ],
+            "timestamp": "2026-06-25 15:42:29"
+        },
+        {
+            "scan_id": "ad40f5576a234136b19e11b0ef5764fc",
+            "username": "sadan",
+            "url": "http://app.com-v1-cloud.net",
+            "risk_score": 15,
+            "danger_level": "SAFE",
+            "reasons": [
+                "No HTTPS encryption"
+            ],
+            "timestamp": "2026-06-25 15:42:57"
+        },
+        {
+            "scan_id": "b4583b4d13b64c4ebef8e70e9cb21659",
+            "username": "sadan",
+            "url": "https://run-cache.vercel.app/",
+            "risk_score": 0,
+            "danger_level": "SAFE",
+            "reasons": [
+                "No suspicious activity detected"
+            ],
+            "timestamp": "2026-06-25 15:43:12"
+        },
+        {
+            "scan_id": "92eca14b16e84ab899a543670ef284b3",
+            "username": "sadan",
+            "url": "http://eeshanyaconstructions.com/wp-includes/default.php?r=bD1odHRwczo...",
+            "risk_score": 15,
+            "danger_level": "SAFE",
+            "reasons": [
+                "No HTTPS encryption"
+            ],
+            "timestamp": "2026-06-25 15:44:12"
+        }
+    ],
+    "Ahmed": [
+        {
+            "scan_id": "dddd07a95b784e718299839edb61e0c0",
+            "username": "Ahmed",
+            "url": "https://secure-banking.verify-account.invalid",
+            "risk_score": 40,
+            "danger_level": "SUSPICIOUS",
+            "reasons": [
+                "Suspicious security-related words found in URL",
+                "SSL certificate problem or unreachable host"
+            ],
+            "timestamp": "2026-06-27 21:15:47"
+        },
+        {
+            "scan_id": "39ac54f94ee44ba1a52f49a75b0f7f56",
+            "username": "Ahmed",
+            "url": "https://one.two.three.four.five.com",
+            "risk_score": 30,
+            "danger_level": "SUSPICIOUS",
+            "reasons": [
+                "Unusually many subdomains",
+                "SSL certificate problem or unreachable host"
+            ],
+            "timestamp": "2026-06-27 21:59:11"
+        },
+        {
+            "scan_id": "26635405bdd14feaaeb29c9d8b79cf8b",
+            "username": "Ahmed",
+            "url": "http://secure-login.verify-bank.tk/update-password",
+            "risk_score": 100,
+            "danger_level": "DANGER",
+            "reasons": [
+                "Suspicious domain extension",
+                "No HTTPS encryption",
+                "Suspicious security-related words found in URL"
+            ],
+            "timestamp": "2026-06-27 21:59:29"
+        }
+    ],
+    "Soban": [
+        {
+            "scan_id": "6da16f86877e4880aa9fde0f380c0cf8",
+            "username": "Soban",
+            "url": "https://paypal.secure.login.verify.update.xyz",
+            "risk_score": 95,
+            "danger_level": "DANGER",
+            "reasons": [
+                "Suspicious domain extension",
+                "Unusually many subdomains",
+                "Suspicious security-related words found in URL",
+                "SSL certificate problem or unreachable host"
+            ],
+            "timestamp": "2026-06-27 22:33:49"
+        },
+        {
+            "scan_id": "e1391c6399de4312b5aaa97bc895f255",
+            "username": "Soban",
+            "url": "https://docs.google.com",
+            "risk_score": 0,
+            "danger_level": "SAFE",
+            "reasons": [
+                "No suspicious activity detected"
+            ],
+            "timestamp": "2026-06-27 22:35:14"
+        },
+        {
+            "scan_id": "f9d81c0138ba4b19889757feae55c875",
+            "username": "Soban",
+            "url": "https://8.8.8.8",
+            "risk_score": 50,
+            "danger_level": "SUSPICIOUS",
+            "reasons": [
+                "Website uses an IP address instead of a domain name",
+                "SSL certificate problem or unreachable host"
+            ],
+            "timestamp": "2026-06-27 22:42:34"
+        }
+    ]
+}

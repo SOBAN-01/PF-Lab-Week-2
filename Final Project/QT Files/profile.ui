@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ProfileWindow</class>
+ <widget class="QMainWindow" name="ProfileWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1200</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>900</width>
+    <height>640</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>ShieldAI — Phishing Detector</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow, QWidget { background-color: #FFFFFF; }</string>
+  </property>
+
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QHBoxLayout" name="mainLayout">
+    <property name="spacing"><number>0</number></property>
+    <property name="contentsMargins"><number>0</number><number>0</number><number>0</number><number>0</number></property>
+
+    <!-- ══ SIDEBAR ══ -->
+    <item>
+     <widget class="QFrame" name="sidebar">
+      <property name="minimumWidth"><number>224</number></property>
+      <property name="maximumWidth"><number>224</number></property>
+      <property name="styleSheet">
+       <string notr="true">QFrame#sidebar { background-color: #F0F4FF; border: none; }</string>
+      </property>
+
+      <layout class="QVBoxLayout" name="sidebarLayout">
+       <property name="spacing"><number>0</number></property>
+       <property name="contentsMargins"><number>0</number><number>0</number><number>0</number><number>0</number></property>
+
+       <item>
+        <widget class="QFrame" name="sidebarAccent">
+         <property name="minimumHeight"><number>4</number></property>
+         <property name="maximumHeight"><number>4</number></property>
+         <property name="styleSheet">
+          <string notr="true">QFrame { background-color: #0000FF; border: none; }</string>
+         </property>
+        </widget>
+       </item>
+
+       <item>
+        <widget class="QWidget" name="brandBlock">
+         <property name="styleSheet">
+          <string notr="true">QWidget { background-color: #F0F4FF; }</string>
+         </property>
+         <layout class="QHBoxLayout">
+          <property name="contentsMargins"><number>16</number><number>18</number><number>16</number><number>0</number></property>
+          <item>
+           <widget class="QFrame" name="sidebarIconFrame">
+            <property name="minimumSize"><size><width>34</width><height>34</height></size></property>
+            <property name="maximumSize"><size><width>34</width><height>34</height></size></property>
+            <property name="styleSheet">
+             <string notr="true">QFrame { background-color: #D6DCFF; border: none; }</string>
+            </property>
+            <layout class="QVBoxLayout">
+             <item alignment="Qt::AlignCenter">
+              <widget class="QLabel" name="sidebarIcon">
+               <property name="text"><string>⬡</string></property>
+               <property name="alignment"><set>Qt::AlignCenter</set></property>
+               <property name="styleSheet">
+                <string notr="true">QLabel { color: #0000FF; font-family: "Courier New"; font-size: 14px; background: transparent; border: none; }</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QWidget" name="sidebarBrandText">
+            <property name="styleSheet"><string notr="true">QWidget { background: transparent; }</string></property>
+            <layout class="QVBoxLayout">
+             <property name="spacing"><number>2</number></property>
+             <property name="contentsMargins"><number>8</number><number>0</number><number>0</number><number>0</number></property>
+             <item>
+              <widget class="QWidget" name="sidebarBrandRow">
+               <layout class="QHBoxLayout">
+                <property name="spacing"><number>0</number></property>
+                <property name="contentsMargins"><number>0</number><number>0</number><number>0</number><number>0</number></property>
+                <item>
+                 <widget class="QLabel" name="sidebarShield">
+                  <property name="text"><string>SHIELD</string></property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel { color: #0A0A1A; font-family: "Courier New"; font-size: 12pt; font-weight: bold; background: transparent; border: none; }</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="sidebarAI">
+                  <property name="text"><string>AI</string></property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel { color: #0000FF; font-family: "Courier New"; font-size: 12pt; font-weight: bold; background: transparent; border: none; }</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="sidebarTagline">
+               <property name="text"><string>Phishing Detector</string></property>
+               <property name="styleSheet">
+                <string notr="true">QLabel { color: #9099B8; font-family: "Segoe UI"; font-size: 7pt; background: transparent; border: none; }</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+
+       <item>
+        <widget class="QFrame" name="sidebarSep1">
+         <property name="styleSheet">
+          <string notr="true">QFrame { background-color: #D1D9F0; border: none; margin: 8px 14px; }</string>
+         </property>
+         <property name="frameShape"><enum>QFrame::HLine</enum></property>
+        </widget>
+       </item>
+
+       <!-- Nav: URL Scanner -->
+       <item>
+        <widget class="QPushButton" name="navScanner">
+         <property name="text"><string>  🔍  URL Scanner</string></property>
+         <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton { background-color: transparent; color: #2A2A4A; font-family: "Segoe UI"; font-size: 10pt; border: none; text-align: left; padding: 10px 12px; margin: 1px 8px; }
+QPushButton:hover { background-color: #D6DCFF; color: #0000FF; }</string>
+         </property>
+        </widget>
+       </item>
+
+       <!-- Nav: Scan History -->
+       <item>
+        <widget class="QPushButton" name="navHistory">
+         <property name="text"><string>  📊  Scan History</string></property>
+         <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton { background-color: transparent; color: #2A2A4A; font-family: "Segoe UI"; font-size: 10pt; border: none; text-align: left; padding: 10px 12px; margin: 1px 8px; }
+QPushButton:hover { background-color: #D6DCFF; color: #0000FF; }</string>
+         </property>
+        </widget>
+       </item>
+
+       <!-- Nav: My Profile (active) -->
+       <item>
+        <widget class="QPushButton" name="navProfile">
+         <property name="text"><string>  👤  My Profile</string></property>
+         <property name="checkable"><bool>true</bool></property>
+         <property name="checked"><bool>true</bool></property>
+         <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton { background-color: #D6DCFF; color: #0000FF; font-family: "Segoe UI"; font-size: 10pt; font-weight: bold; border: none; text-align: left; padding: 10px 12px; margin: 1px 8px; }
+QPushButton:hover { background-color: #D6DCFF; }</string>
+         </property>
+        </widget>
+       </item>
+
+       <item>
+        <widget class="QFrame" name="sidebarSep2">
+         <property name="styleSheet">
+          <string notr="true">QFrame { background-color: #D1D9F0; border: none; margin: 8px 14px; }</string>
+         </property>
+         <property name="frameShape"><enum>QFrame::HLine</enum></property>
+        </widget>
+       </item>
+
+       <item>
+        <widget class="QFrame" name="statusChip">
+         <property name="styleSheet">
+          <string notr="true">QFrame#statusChip { background-color: #F0FFF2; border: 1px solid #88DD99; margin: 4px 12px; }</string>
+         </property>
+         <layout class="QHBoxLayout">
+          <property name="contentsMargins"><number>10</number><number>8</number><number>10</number><number>8</number></property>
+          <item>
+           <widget class="QLabel" name="statusDot">
+            <property name="text"><string>●</string></property>
+            <property name="styleSheet">
+             <string notr="true">QLabel { color: #006600; font-size: 8pt; background: transparent; border: none; }</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="statusText">
+            <property name="text"><string>Engine Online · Local Analysis Mode</string></property>
+            <property name="wordWrap"><bool>true</bool></property>
+            <property name="styleSheet">
+             <string notr="true">QLabel { color: #006600; font-family: "Segoe UI"; font-size: 8pt; background: transparent; border: none; }</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+
+       <item>
+        <spacer>
+         <property name="orientation"><enum>Qt::Vertical</enum></property>
+        </spacer>
+       </item>
+
+       <item>
+        <widget class="QPushButton" name="logoutButton">
+         <property name="text"><string>  ⇥  Logout</string></property>
+         <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton { background-color: transparent; color: #CC0000; font-family: "Segoe UI"; font-size: 9pt; border: none; text-align: left; padding: 10px 12px; margin: 0 8px 12px 8px; }
+QPushButton:hover { background-color: #FFF0F0; }</string>
+         </property>
+        </widget>
+       </item>
+
+      </layout>
+     </widget>
+    </item>
+
+    <!-- ══ CONTENT AREA ══ -->
+    <item>
+     <widget class="QWidget" name="contentArea">
+      <property name="styleSheet">
+       <string notr="true">QWidget#contentArea { background-color: #FFFFFF; }</string>
+      </property>
+      <layout class="QVBoxLayout" name="contentLayout">
+       <property name="spacing"><number>0</number></property>
+       <property name="contentsMargins"><number>28</number><number>24</number><number>28</number><number>24</number></property>
+
+       <!-- Page title -->
+       <item>
+        <widget class="QLabel" name="pageTitle">
+         <property name="text"><string>My Profile</string></property>
+         <property name="styleSheet">
+          <string notr="true">QLabel { color: #0A0A1A; font-family: "Segoe UI"; font-size: 18pt; font-weight: bold; background: transparent; border: none; }</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="pageSubtitle">
+         <property name="text"><string>Account details and settings.</string></property>
+         <property name="styleSheet">
+          <string notr="true">QLabel { color: #5A607A; font-family: "Segoe UI"; font-size: 9pt; background: transparent; border: none; }</string>
+         </property>
+        </widget>
+       </item>
+
+       <item>
+        <widget class="QFrame" name="contentSep">
+         <property name="styleSheet">
+          <string notr="true">QFrame { background-color: #D1D9F0; border: none; margin: 8px 0; }</string>
+         </property>
+         <property name="frameShape"><enum>QFrame::HLine</enum></property>
+        </widget>
+       </item>
+
+       <!-- Identity card -->
+       <item>
+        <widget class="QFrame" name="identityCard">
+         <property name="styleSheet">
+          <string notr="true">QFrame#identityCard { background-color: #FFFFFF; border: 1px solid #D1D9F0; }</string>
+         </property>
+         <layout class="QHBoxLayout">
+          <property name="contentsMargins"><number>20</number><number>20</number><number>20</number><number>20</number></property>
+
+          <!-- Avatar frame -->
+          <item>
+           <widget class="QFrame" name="avatarFrame">
+            <property name="minimumSize"><size><width>58</width><height>58</height></size></property>
+            <property name="maximumSize"><size><width>58</width><height>58</height></size></property>
+            <property name="styleSheet">
+             <string notr="true">QFrame { background-color: #D6DCFF; border: none; }</string>
+            </property>
+            <layout class="QVBoxLayout">
+             <item alignment="Qt::AlignCenter">
+              <widget class="QLabel" name="avatarLabel">
+               <property name="text"><string>👤</string></property>
+               <property name="alignment"><set>Qt::AlignCenter</set></property>
+               <property name="styleSheet">
+                <string notr="true">QLabel { font-size: 22px; background: transparent; border: none; color: #0000FF; }</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+
+          <!-- Username + status -->
+          <item>
+           <widget class="QWidget" name="identityInfo">
+            <property name="styleSheet"><string notr="true">QWidget { background: transparent; }</string></property>
+            <layout class="QVBoxLayout">
+             <property name="spacing"><number>6</number></property>
+             <property name="contentsMargins"><number>0</number><number>0</number><number>0</number><number>0</number></property>
+             <item>
+              <widget class="QLabel" name="usernameLabel">
+               <property name="text"><string>ALI</string></property>
+               <property name="styleSheet">
+                <string notr="true">QLabel { color: #0A0A1A; font-family: "Segoe UI"; font-size: 14pt; font-weight: bold; background: transparent; border: none; }</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QFrame" name="activeStatusBadge">
+               <property name="styleSheet">
+                <string notr="true">QFrame { background-color: #F0FFF2; border: 1px solid #88DD99; padding: 2px 8px; }</string>
+               </property>
+               <layout class="QHBoxLayout">
+                <property name="spacing"><number>6</number></property>
+                <property name="contentsMargins"><number>8</number><number>4</number><number>8</number><number>4</number></property>
+                <item>
+                 <widget class="QLabel" name="activeCheckmark">
+                  <property name="text"><string>✓</string></property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel { color: #006600; font-size: 9pt; font-weight: bold; background: transparent; border: none; }</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="activeStatusText">
+                  <property name="text"><string>Account active — local session</string></property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel { color: #006600; font-family: "Segoe UI"; font-size: 9pt; background: transparent; border: none; }</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+
+          <item><spacer><property name="orientation"><enum>Qt::Horizontal</enum></property></spacer></item>
+
+          <!-- Action buttons column -->
+          <item>
+           <widget class="QWidget" name="actionButtons">
+            <property name="styleSheet"><string notr="true">QWidget { background: transparent; }</string></property>
+            <layout class="QVBoxLayout">
+             <property name="spacing"><number>6</number></property>
+             <property name="contentsMargins"><number>0</number><number>0</number><number>0</number><number>0</number></property>
+             <item>
+              <widget class="QPushButton" name="changeImageButton">
+               <property name="text"><string>Change image</string></property>
+               <property name="minimumHeight"><number>34</number></property>
+               <property name="minimumWidth"><number>130</number></property>
+               <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton { background-color: #F5F8FF; color: #0000FF; font-family: "Segoe UI"; font-size: 9pt; font-weight: bold; border: 1px solid #D6DCFF; padding: 4px 12px; }
+QPushButton:hover { background-color: #D6DCFF; }</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="changeUsernameButton">
+               <property name="text"><string>Change username</string></property>
+               <property name="minimumHeight"><number>34</number></property>
+               <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton { background-color: #F5F8FF; color: #0000FF; font-family: "Segoe UI"; font-size: 9pt; font-weight: bold; border: 1px solid #D6DCFF; padding: 4px 12px; }
+QPushButton:hover { background-color: #D6DCFF; }</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+
+         </layout>
+        </widget>
+       </item>
+
+       <!-- Toast slot for profile messages -->
+       <item>
+        <widget class="QLabel" name="profileToastLabel">
+         <property name="text"><string></string></property>
+         <property name="visible"><bool>false</bool></property>
+         <property name="wordWrap"><bool>true</bool></property>
+         <property name="styleSheet">
+          <string notr="true">QLabel { background-color: #F0FFF2; border: 1px solid #88DD99; color: #006600; font-family: "Segoe UI"; font-size: 9pt; padding: 8px; border-radius: 2px; }</string>
+         </property>
+        </widget>
+       </item>
+
+       <!-- Stats card -->
+       <item>
+        <widget class="QFrame" name="statsCard">
+         <property name="styleSheet">
+          <string notr="true">QFrame#statsCard { background-color: #FFFFFF; border: 1px solid #D1D9F0; }</string>
+         </property>
+         <layout class="QVBoxLayout">
+          <property name="contentsMargins"><number>16</number><number>14</number><number>16</number><number>14</number></property>
+          <item>
+           <widget class="QLabel" name="statsCardTitle">
+            <property name="text"><string>Account Statistics</string></property>
+            <property name="styleSheet">
+             <string notr="true">QLabel { color: #5A607A; font-family: "Segoe UI"; font-size: 9pt; font-weight: bold; background: transparent; border: none; }</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QWidget" name="statsRow">
+            <property name="styleSheet"><string notr="true">QWidget { background: transparent; }</string></property>
+            <layout class="QHBoxLayout">
+             <property name="spacing"><number>4</number></property>
+             <property name="contentsMargins"><number>0</number><number>6</number><number>0</number><number>0</number></property>
+
+             <!-- Scans performed -->
+             <item>
+              <widget class="QLabel" name="scansCount">
+               <property name="text"><string>0</string></property>
+               <property name="styleSheet">
+                <string notr="true">QLabel { color: #0000FF; font-family: "Segoe UI"; font-size: 22pt; font-weight: bold; background: transparent; border: none; }</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="scansLabel">
+               <property name="text"><string>Scans performed</string></property>
+               <property name="styleSheet">
+                <string notr="true">QLabel { color: #5A607A; font-family: "Segoe UI"; font-size: 8pt; background: transparent; border: none; padding-right: 30px; }</string>
+               </property>
+              </widget>
+             </item>
+
+             <!-- Threats detected -->
+             <item>
+              <widget class="QLabel" name="threatsCount">
+               <property name="text"><string>0</string></property>
+               <property name="styleSheet">
+                <string notr="true">QLabel { color: #CC0000; font-family: "Segoe UI"; font-size: 22pt; font-weight: bold; background: transparent; border: none; }</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="threatsLabel">
+               <property name="text"><string>Threats detected</string></property>
+               <property name="styleSheet">
+                <string notr="true">QLabel { color: #5A607A; font-family: "Segoe UI"; font-size: 8pt; background: transparent; border: none; }</string>
+               </property>
+              </widget>
+             </item>
+
+             <item><spacer><property name="orientation"><enum>Qt::Horizontal</enum></property></spacer></item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+
+       <!-- Separator before logout -->
+       <item>
+        <widget class="QFrame" name="logoutSep">
+         <property name="styleSheet">
+          <string notr="true">QFrame { background-color: #D1D9F0; border: none; margin: 8px 0 4px 0; }</string>
+         </property>
+         <property name="frameShape"><enum>QFrame::HLine</enum></property>
+        </widget>
+       </item>
+
+       <!-- Logout and end session button -->
+       <item alignment="Qt::AlignLeft">
+        <widget class="QPushButton" name="logoutEndSessionButton">
+         <property name="text"><string>  ⇥  Logout and end session</string></property>
+         <property name="minimumHeight"><number>44</number></property>
+         <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton { background-color: #FFF0F0; color: #CC0000; font-family: "Segoe UI"; font-size: 10pt; font-weight: bold; border: 1px solid #FFAAAA; padding: 10px 18px; text-align: left; }
+QPushButton:hover { background-color: #FFE0E0; }
+QPushButton:pressed { background-color: #FFD0D0; }</string>
+         </property>
+        </widget>
+       </item>
+
+       <item>
+        <spacer>
+         <property name="orientation"><enum>Qt::Vertical</enum></property>
+        </spacer>
+       </item>
+
+      </layout>
+     </widget>
+    </item>
+
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>HistoryWindow</class>
+ <widget class="QMainWindow" name="HistoryWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1200</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>900</width>
+    <height>640</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>ShieldAI — Phishing Detector</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow, QWidget { background-color: #FFFFFF; }</string>
+  </property>
+
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QHBoxLayout" name="mainLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="contentsMargins">
+     <number>0</number>
+     <number>0</number>
+     <number>0</number>
+     <number>0</number>
+    </property>
+
+    <!-- ══ SIDEBAR (identical structure to scanner.ui) ══ -->
+    <item>
+     <widget class="QFrame" name="sidebar">
+      <property name="minimumWidth">
+       <number>224</number>
+      </property>
+      <property name="maximumWidth">
+       <number>224</number>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QFrame#sidebar { background-color: #F0F4FF; border: none; }</string>
+      </property>
+
+      <layout class="QVBoxLayout" name="sidebarLayout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="contentsMargins">
+        <number>0</number>
+        <number>0</number>
+        <number>0</number>
+        <number>0</number>
+       </property>
+
+       <item>
+        <widget class="QFrame" name="sidebarAccent">
+         <property name="minimumHeight"><number>4</number></property>
+         <property name="maximumHeight"><number>4</number></property>
+         <property name="styleSheet">
+          <string notr="true">QFrame { background-color: #0000FF; border: none; }</string>
+         </property>
+        </widget>
+       </item>
+
+       <item>
+        <widget class="QWidget" name="brandBlock">
+         <property name="styleSheet">
+          <string notr="true">QWidget { background-color: #F0F4FF; }</string>
+         </property>
+         <layout class="QHBoxLayout">
+          <property name="contentsMargins">
+           <number>16</number><number>18</number><number>16</number><number>0</number>
+          </property>
+          <item>
+           <widget class="QFrame" name="sidebarIconFrame">
+            <property name="minimumSize"><size><width>34</width><height>34</height></size></property>
+            <property name="maximumSize"><size><width>34</width><height>34</height></size></property>
+            <property name="styleSheet">
+             <string notr="true">QFrame { background-color: #D6DCFF; border: none; }</string>
+            </property>
+            <layout class="QVBoxLayout">
+             <item alignment="Qt::AlignCenter">
+              <widget class="QLabel" name="sidebarIcon">
+               <property name="text"><string>⬡</string></property>
+               <property name="alignment"><set>Qt::AlignCenter</set></property>
+               <property name="styleSheet">
+                <string notr="true">QLabel { color: #0000FF; font-family: "Courier New"; font-size: 14px; background: transparent; border: none; }</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QWidget" name="sidebarBrandText">
+            <property name="styleSheet"><string notr="true">QWidget { background: transparent; }</string></property>
+            <layout class="QVBoxLayout">
+             <property name="spacing"><number>2</number></property>
+             <property name="contentsMargins"><number>8</number><number>0</number><number>0</number><number>0</number></property>
+             <item>
+              <widget class="QWidget" name="sidebarBrandRow">
+               <layout class="QHBoxLayout">
+                <property name="spacing"><number>0</number></property>
+                <property name="contentsMargins"><number>0</number><number>0</number><number>0</number><number>0</number></property>
+                <item>
+                 <widget class="QLabel" name="sidebarShield">
+                  <property name="text"><string>SHIELD</string></property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel { color: #0A0A1A; font-family: "Courier New"; font-size: 12pt; font-weight: bold; background: transparent; border: none; }</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="sidebarAI">
+                  <property name="text"><string>AI</string></property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel { color: #0000FF; font-family: "Courier New"; font-size: 12pt; font-weight: bold; background: transparent; border: none; }</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="sidebarTagline">
+               <property name="text"><string>Phishing Detector</string></property>
+               <property name="styleSheet">
+                <string notr="true">QLabel { color: #9099B8; font-family: "Segoe UI"; font-size: 7pt; background: transparent; border: none; }</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+
+       <item>
+        <widget class="QFrame" name="sidebarSep1">
+         <property name="styleSheet">
+          <string notr="true">QFrame { background-color: #D1D9F0; border: none; margin: 8px 14px; }</string>
+         </property>
+         <property name="frameShape"><enum>QFrame::HLine</enum></property>
+        </widget>
+       </item>
+
+       <!-- Nav: URL Scanner -->
+       <item>
+        <widget class="QPushButton" name="navScanner">
+         <property name="text"><string>  🔍  URL Scanner</string></property>
+         <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton { background-color: transparent; color: #2A2A4A; font-family: "Segoe UI"; font-size: 10pt; border: none; text-align: left; padding: 10px 12px; margin: 1px 8px; }
+QPushButton:hover { background-color: #D6DCFF; color: #0000FF; }</string>
+         </property>
+        </widget>
+       </item>
+
+       <!-- Nav: Scan History (active) -->
+       <item>
+        <widget class="QPushButton" name="navHistory">
+         <property name="text"><string>  📊  Scan History</string></property>
+         <property name="checkable"><bool>true</bool></property>
+         <property name="checked"><bool>true</bool></property>
+         <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton { background-color: #D6DCFF; color: #0000FF; font-family: "Segoe UI"; font-size: 10pt; font-weight: bold; border: none; text-align: left; padding: 10px 12px; margin: 1px 8px; }
+QPushButton:hover { background-color: #D6DCFF; }</string>
+         </property>
+        </widget>
+       </item>
+
+       <!-- Nav: My Profile -->
+       <item>
+        <widget class="QPushButton" name="navProfile">
+         <property name="text"><string>  👤  My Profile</string></property>
+         <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton { background-color: transparent; color: #2A2A4A; font-family: "Segoe UI"; font-size: 10pt; border: none; text-align: left; padding: 10px 12px; margin: 1px 8px; }
+QPushButton:hover { background-color: #D6DCFF; color: #0000FF; }</string>
+         </property>
+        </widget>
+       </item>
+
+       <item>
+        <widget class="QFrame" name="sidebarSep2">
+         <property name="styleSheet">
+          <string notr="true">QFrame { background-color: #D1D9F0; border: none; margin: 8px 14px; }</string>
+         </property>
+         <property name="frameShape"><enum>QFrame::HLine</enum></property>
+        </widget>
+       </item>
+
+       <item>
+        <widget class="QFrame" name="statusChip">
+         <property name="styleSheet">
+          <string notr="true">QFrame#statusChip { background-color: #F0FFF2; border: 1px solid #88DD99; margin: 4px 12px; }</string>
+         </property>
+         <layout class="QHBoxLayout">
+          <property name="contentsMargins"><number>10</number><number>8</number><number>10</number><number>8</number></property>
+          <item>
+           <widget class="QLabel" name="statusDot">
+            <property name="text"><string>●</string></property>
+            <property name="styleSheet">
+             <string notr="true">QLabel { color: #006600; font-size: 8pt; background: transparent; border: none; }</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="statusText">
+            <property name="text"><string>Engine Online · Local Analysis Mode</string></property>
+            <property name="wordWrap"><bool>true</bool></property>
+            <property name="styleSheet">
+             <string notr="true">QLabel { color: #006600; font-family: "Segoe UI"; font-size: 8pt; background: transparent; border: none; }</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+
+       <item>
+        <spacer>
+         <property name="orientation"><enum>Qt::Vertical</enum></property>
+        </spacer>
+       </item>
+
+       <item>
+        <widget class="QPushButton" name="logoutButton">
+         <property name="text"><string>  ⇥  Logout</string></property>
+         <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton { background-color: transparent; color: #CC0000; font-family: "Segoe UI"; font-size: 9pt; border: none; text-align: left; padding: 10px 12px; margin: 0 8px 12px 8px; }
+QPushButton:hover { background-color: #FFF0F0; }</string>
+         </property>
+        </widget>
+       </item>
+
+      </layout>
+     </widget>
+    </item>
+
+    <!-- ══ CONTENT AREA ══ -->
+    <item>
+     <widget class="QWidget" name="contentArea">
+      <property name="styleSheet">
+       <string notr="true">QWidget#contentArea { background-color: #FFFFFF; }</string>
+      </property>
+      <layout class="QVBoxLayout" name="contentLayout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="contentsMargins">
+        <number>28</number>
+        <number>24</number>
+        <number>28</number>
+        <number>16</number>
+       </property>
+
+       <!-- Page title -->
+       <item>
+        <widget class="QLabel" name="pageTitle">
+         <property name="text"><string>Scan History</string></property>
+         <property name="styleSheet">
+          <string notr="true">QLabel { color: #0A0A1A; font-family: "Segoe UI"; font-size: 18pt; font-weight: bold; background: transparent; border: none; }</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="pageSubtitle">
+         <property name="text"><string>All recorded scan events for this account.</string></property>
+         <property name="styleSheet">
+          <string notr="true">QLabel { color: #5A607A; font-family: "Segoe UI"; font-size: 9pt; background: transparent; border: none; }</string>
+         </property>
+        </widget>
+       </item>
+
+       <!-- Separator -->
+       <item>
+        <widget class="QFrame" name="contentSep">
+         <property name="styleSheet">
+          <string notr="true">QFrame { background-color: #D1D9F0; border: none; margin: 8px 0; }</string>
+         </property>
+         <property name="frameShape"><enum>QFrame::HLine</enum></property>
+        </widget>
+       </item>
+
+       <!-- Search + Sort row -->
+       <item>
+        <widget class="QWidget" name="controlsRow">
+         <layout class="QHBoxLayout">
+          <property name="spacing"><number>10</number></property>
+          <property name="contentsMargins"><number>0</number><number>0</number><number>0</number><number>0</number></property>
+          <item>
+           <widget class="QLineEdit" name="searchInput">
+            <property name="placeholderText"><string>🔎  Search scans…</string></property>
+            <property name="minimumHeight"><number>38</number></property>
+            <property name="styleSheet">
+             <string notr="true">QLineEdit { background-color: #F5F8FF; border: 1px solid #D1D9F0; color: #0A0A1A; font-family: "Segoe UI"; font-size: 9pt; padding: 0 12px; }
+QLineEdit:focus { border: 1px solid #0000FF; }</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="sortCombo">
+            <property name="minimumHeight"><number>38</number></property>
+            <property name="minimumWidth"><number>180</number></property>
+            <property name="styleSheet">
+             <string notr="true">QComboBox { background-color: #F5F8FF; border: 1px solid #D1D9F0; color: #0A0A1A; font-family: "Segoe UI"; font-size: 9pt; padding: 0 10px; }
+QComboBox::drop-down { border: none; }
+QComboBox QAbstractItemView { background-color: #FFFFFF; border: 1px solid #D1D9F0; selection-background-color: #D6DCFF; }</string>
+            </property>
+            <item><property name="text"><string>Newest first</string></property></item>
+            <item><property name="text"><string>Oldest first</string></property></item>
+            <item><property name="text"><string>Highest risk score</string></property></item>
+            <item><property name="text"><string>Lowest risk score</string></property></item>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+
+       <!-- Stats chips row -->
+       <item>
+        <widget class="QWidget" name="statsRow">
+         <layout class="QHBoxLayout">
+          <property name="spacing"><number>8</number></property>
+          <property name="contentsMargins"><number>0</number><number>14</number><number>0</number><number>0</number></property>
+
+          <!-- Total chip -->
+          <item>
+           <widget class="QFrame" name="chipTotal">
+            <property name="styleSheet">
+             <string notr="true">QFrame { background-color: #F8FAFF; border: 1px solid #D1D9F0; padding: 6px 10px; }</string>
+            </property>
+            <layout class="QHBoxLayout">
+             <property name="spacing"><number>6</number></property>
+             <property name="contentsMargins"><number>12</number><number>6</number><number>12</number><number>6</number></property>
+             <item>
+              <widget class="QLabel" name="totalCount">
+               <property name="text"><string>0</string></property>
+               <property name="styleSheet">
+                <string notr="true">QLabel { color: #0000FF; font-family: "Segoe UI"; font-size: 18pt; font-weight: bold; background: transparent; border: none; }</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="totalLabel">
+               <property name="text"><string>Total</string></property>
+               <property name="styleSheet">
+                <string notr="true">QLabel { color: #5A607A; font-family: "Segoe UI"; font-size: 8pt; background: transparent; border: none; }</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+
+          <!-- Danger chip -->
+          <item>
+           <widget class="QFrame" name="chipDanger">
+            <property name="styleSheet">
+             <string notr="true">QFrame { background-color: #F8FAFF; border: 1px solid #D1D9F0; padding: 6px 10px; }</string>
+            </property>
+            <layout class="QHBoxLayout">
+             <property name="spacing"><number>6</number></property>
+             <property name="contentsMargins"><number>12</number><number>6</number><number>12</number><number>6</number></property>
+             <item>
+              <widget class="QLabel" name="dangerCount">
+               <property name="text"><string>0</string></property>
+               <property name="styleSheet">
+                <string notr="true">QLabel { color: #CC0000; font-family: "Segoe UI"; font-size: 18pt; font-weight: bold; background: transparent; border: none; }</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="dangerLabel">
+               <property name="text"><string>Danger</string></property>
+               <property name="styleSheet">
+                <string notr="true">QLabel { color: #5A607A; font-family: "Segoe UI"; font-size: 8pt; background: transparent; border: none; }</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+
+          <!-- Suspicious chip -->
+          <item>
+           <widget class="QFrame" name="chipSuspicious">
+            <property name="styleSheet">
+             <string notr="true">QFrame { background-color: #F8FAFF; border: 1px solid #D1D9F0; padding: 6px 10px; }</string>
+            </property>
+            <layout class="QHBoxLayout">
+             <property name="spacing"><number>6</number></property>
+             <property name="contentsMargins"><number>12</number><number>6</number><number>12</number><number>6</number></property>
+             <item>
+              <widget class="QLabel" name="suspiciousCount">
+               <property name="text"><string>0</string></property>
+               <property name="styleSheet">
+                <string notr="true">QLabel { color: #B85C00; font-family: "Segoe UI"; font-size: 18pt; font-weight: bold; background: transparent; border: none; }</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="suspiciousLabel">
+               <property name="text"><string>Suspicious</string></property>
+               <property name="styleSheet">
+                <string notr="true">QLabel { color: #5A607A; font-family: "Segoe UI"; font-size: 8pt; background: transparent; border: none; }</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+
+          <!-- Safe chip -->
+          <item>
+           <widget class="QFrame" name="chipSafe">
+            <property name="styleSheet">
+             <string notr="true">QFrame { background-color: #F8FAFF; border: 1px solid #D1D9F0; padding: 6px 10px; }</string>
+            </property>
+            <layout class="QHBoxLayout">
+             <property name="spacing"><number>6</number></property>
+             <property name="contentsMargins"><number>12</number><number>6</number><number>12</number><number>6</number></property>
+             <item>
+              <widget class="QLabel" name="safeCount">
+               <property name="text"><string>0</string></property>
+               <property name="styleSheet">
+                <string notr="true">QLabel { color: #006600; font-family: "Segoe UI"; font-size: 18pt; font-weight: bold; background: transparent; border: none; }</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="safeLabel">
+               <property name="text"><string>Safe</string></property>
+               <property name="styleSheet">
+                <string notr="true">QLabel { color: #5A607A; font-family: "Segoe UI"; font-size: 8pt; background: transparent; border: none; }</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+
+          <item><spacer><property name="orientation"><enum>Qt::Horizontal</enum></property></spacer></item>
+         </layout>
+        </widget>
+       </item>
+
+       <!-- Column header row -->
+       <item>
+        <widget class="QFrame" name="colHeaderFrame">
+         <property name="styleSheet">
+          <string notr="true">QFrame { background-color: #F0F4FF; border: none; }</string>
+         </property>
+         <layout class="QHBoxLayout">
+          <property name="contentsMargins"><number>12</number><number>5</number><number>12</number><number>5</number></property>
+          <item>
+           <widget class="QLabel" name="colStatus">
+            <property name="text"><string>Status</string></property>
+            <property name="minimumWidth"><number>100</number></property>
+            <property name="styleSheet">
+             <string notr="true">QLabel { color: #5A607A; font-family: "Segoe UI"; font-size: 8pt; font-weight: bold; background: transparent; border: none; }</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="colURL">
+            <property name="text"><string>URL / Domain</string></property>
+            <property name="styleSheet">
+             <string notr="true">QLabel { color: #5A607A; font-family: "Segoe UI"; font-size: 8pt; font-weight: bold; background: transparent; border: none; }</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="colScore">
+            <property name="text"><string>Score</string></property>
+            <property name="minimumWidth"><number>60</number></property>
+            <property name="styleSheet">
+             <string notr="true">QLabel { color: #5A607A; font-family: "Segoe UI"; font-size: 8pt; font-weight: bold; background: transparent; border: none; }</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="colTime">
+            <property name="text"><string>Time</string></property>
+            <property name="minimumWidth"><number>150</number></property>
+            <property name="styleSheet">
+             <string notr="true">QLabel { color: #5A607A; font-family: "Segoe UI"; font-size: 8pt; font-weight: bold; background: transparent; border: none; }</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="colDel">
+            <property name="text"><string></string></property>
+            <property name="minimumWidth"><number>40</number></property>
+            <property name="styleSheet">
+             <string notr="true">QLabel { background: transparent; border: none; }</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+
+       <!-- Scrollable list area (rows populated dynamically in code) -->
+       <item>
+        <widget class="QScrollArea" name="historyScrollArea">
+         <property name="widgetResizable"><bool>true</bool></property>
+         <property name="styleSheet">
+          <string notr="true">QScrollArea { border: none; background: transparent; }
+QScrollBar:vertical { background: #FFFFFF; width: 8px; }
+QScrollBar::handle:vertical { background: #D1D9F0; border-radius: 4px; }
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical { height: 0; }</string>
+         </property>
+         <widget class="QWidget" name="historyScrollContents">
+          <layout class="QVBoxLayout" name="historyListLayout">
+           <property name="spacing"><number>1</number></property>
+           <property name="alignment"><set>Qt::AlignTop</set></property>
+           <property name="contentsMargins"><number>0</number><number>0</number><number>0</number><number>0</number></property>
+
+           <!-- Empty state placeholder (shown when no records) -->
+           <item>
+            <widget class="QFrame" name="emptyState">
+             <property name="styleSheet">
+              <string notr="true">QFrame { background-color: #F0F4FF; border: 1px solid #AABBFF; padding: 8px; }</string>
+             </property>
+             <layout class="QHBoxLayout">
+              <property name="contentsMargins"><number>12</number><number>8</number><number>12</number><number>8</number></property>
+              <item>
+               <widget class="QLabel" name="emptyIcon">
+                <property name="text"><string>ℹ</string></property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel { color: #0000CC; font-size: 12pt; background: transparent; border: none; }</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="emptyText">
+                <property name="text"><string>No matching scans found.</string></property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel { color: #0000CC; font-family: "Segoe UI"; font-size: 9pt; background: transparent; border: none; }</string>
+                </property>
+               </widget>
+              </item>
+              <item><spacer><property name="orientation"><enum>Qt::Horizontal</enum></property></spacer></item>
+             </layout>
+            </widget>
+           </item>
+
+           <!-- Additional scan rows are appended here dynamically by code -->
+
+          </layout>
+         </widget>
+        </widget>
+       </item>
+
+      </layout>
+     </widget>
+    </item>
+
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
